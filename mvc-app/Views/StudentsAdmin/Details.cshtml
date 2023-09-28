@@ -1,0 +1,56 @@
+ @model mvc_app.ViewModels.Student.StudentListViewModel
+
+ @{
+    Layout = "_LayoutAdmin";
+}
+
+
+<section class="page-content">
+        <div class="page-header">
+        <h1 class="page-title">Studenter</h1>
+    </div>
+    <div class="user-details-container">
+        <div class="user-details">
+            <div class="go-back">
+                <a asp-action="Index" asp-controller="StudentsAdmin">Tillbaka</a>
+            </div>
+            <h2 class="user-details-header">@Model.FirstName @Model.LastName</h2>
+                    <table>
+                    <thead>
+                <tr class="table-header">
+                    <th></th>
+                    <th>ID</th>
+                    <th>Förnamn</th>
+                    <th>Efternamn</th>
+                    <th>E-mail</th>
+                    <th>Telefonnummer</th>
+                    <th>Födelsedatum</th>
+                    <th>Adress</th>
+                    <th>Postnummer</th>
+                    <th>Stad</th>
+                    <th>Land</th>
+                    <th>Pågående kurs</th>
+                    <th></th>
+                </tr>
+            </thead>
+                        <tr class="table-content">
+                        <td><a asp-action="Edit" asp-controller="StudentsAdmin" asp-route-studentId=@Model.Id>Ändra</a>
+                        </td>
+                        <td>@Model.Id</td>
+                        <td>@Model.FirstName</td>
+                        <td>@Model.LastName</td>
+                        <td>@Model.Email</td>
+                        <td>@Model.Phone</td>
+                        <td>@Model.BirthDate</td>
+                        <td>@Model.Address</td>
+                        <td>@Model.PostalCode</td>
+                        <td>@Model.City</td>
+                        <td>@Model.Country</td>
+                        <td>@Model.Course</td>
+                        <td><a asp-action="Delete" asp-controller="StudentsAdmin"
+                            asp-route-studentId=@Model.Id>Radera</a></td>
+                    </tr>
+                    </table>
+        </div>
+    </div>
+</section>

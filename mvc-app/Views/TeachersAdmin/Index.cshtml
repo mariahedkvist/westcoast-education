@@ -1,0 +1,44 @@
+@model IEnumerable<mvc_app.ViewModels.Teacher.TeacherListViewModel>
+
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<section class="page-content">
+    <div class="page-header">
+        <h1 class="page-title">Lärare</h1>
+    </div>
+    <div>
+        <a asp-action="Create" asp-controller="TeachersAdmin">Lägg till lärare</a>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr class="table-header">
+                    <th></th>
+                    <th>ID</th>
+                    <th>Förnamn</th>
+                    <th>Efternamn</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+                @foreach (var teacher in Model)
+                {
+                    <tr class="table-content">
+                        <td><a asp-action="Edit" asp-controller="TeachersAdmin" asp-route-userId=@teacher.Id>Ändra</a>
+                        </td>
+                        <td>@teacher.Id</td>
+                        <td>@teacher.FirstName</td>
+                        <td>@teacher.LastName</td>
+                        <td><a asp-action="Details" asp-route-teacherId="@teacher.Id" asp-controller="TeachersAdmin">Detaljer</a></td>
+                        <td><a asp-action="Delete" asp-controller="TeachersAdmin"
+                            asp-route-userId=@teacher.Id>Radera</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</section>

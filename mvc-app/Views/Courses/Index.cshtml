@@ -1,0 +1,37 @@
+@model IEnumerable<mvc_app.ViewModels.Course.CourseListViewModel>
+
+<div class="page-content">
+    <div class="page-header">
+        <h1 class="page-title">Våra kurser</h1>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead class="table-header">
+                <tr>
+                    <th>ID</th>
+                    <th>Namn</th>
+                    <th>Kurskod</th>
+                    <th>Lärare</th>
+                    <th>Startdatum</th>
+                    <th>Slutdatum</th>
+                    <th>Längd</th>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+                @foreach (var course in Model)
+                {
+                    <tr class="table-content">
+                        <td>@course.CourseId</td>
+                        <td>@course.Title</td>
+                        <td>@course.CourseNumber</td>
+                        <td>@course.Teacher</td>
+                        <td>@course.StartDate</td>
+                        <td>@course.EndDate</td>
+                        <td>@course.WeeksDuration veckor</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

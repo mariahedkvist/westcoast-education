@@ -1,0 +1,59 @@
+@model IEnumerable<mvc_app.ViewModels.Course.CourseListViewModel>
+
+
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<section class="page-content">
+    <div class="page-header">
+        <h1 class="page-title">Aktuella kurser</h1>
+    </div>
+    <div>
+        <a asp-action="Create" asp-controller="CoursesAdmin">Lägg till kurs</a>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr class="table-header">
+                    <th></th>
+                    <th>ID</th>
+                    <th>Namn</th>
+                    <th>Kurskod</th>
+                    <th>Lärare</th>
+                    <th>Startdatum</th>
+                    <th>Slutdatum</th>
+                    <th>Längd</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+                @foreach (var course in Model)
+                {
+                    <tr class="table-content">
+                        <td><a asp-action="Edit" asp-controller="CoursesAdmin" asp-route-courseId=@course.CourseId>Ändra</a>
+                        </td>
+                        <td>@course.CourseId</td>
+                        <td>@course.Title</td>
+                        <td>@course.CourseNumber</td>
+                        <td>@if (@course.Teacher is null)
+                        {
+                            <a asp-action="AssignTeacher" asp-route-courseId=@course.CourseId>Lägg till</a>
+                        }
+                            @course.Teacher</td>
+                        <td>@course.StartDate</td>
+                        <td>@course.EndDate</td>
+                        <td>@course.WeeksDuration veckor</td>
+                        <td><a asp-action="ListEnrolledStudents" asp-controller="CoursesAdmin" asp-route-courseId=@course.CourseId>Registrerade studenter</a></td>
+                        <td><a asp-action="Delete" asp-controller="CoursesAdmin"
+                            asp-route-courseId=@course.CourseId>Radera</a></td>
+                        <td><a asp-action="AddTeacher" asp-controller="CoursesAdmin" asp-route-courseId="@course.CourseId">Lägg till lärare</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</section>

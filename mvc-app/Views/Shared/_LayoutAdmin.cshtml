@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/site.css">
+    <title>Westcoast Education</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a asp-action="Index" asp-controller="Home">Tillbaka till startsidan</a>
+            <ul>
+                <li><a asp-action="Index" asp-controller="Admin">Startsida</a></li>
+                <li><a asp-action="Index" asp-controller="TeachersAdmin">Lärare</a></li>
+                <li><a asp-action="Index" asp-controller="StudentsAdmin">Studenter</a></li>
+                <li><a asp-action="Index" asp-controller="CoursesAdmin">Kurser</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/7fb40d9ca8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/site.css">
+    <title>@ViewBag.PageTitle – WestCoast Education</title>
+
+</head>
+
+<body>
+    <main>
+        <section>
+            <nav class="navbar">
+                <a asp-action="Index" asp-controller="Admin">Admin</a>
+                <ul>
+                    <li><a asp-action="Index" asp-controller="Home">Startsida</a></li>
+                    <li><a asp-action="Index" asp-controller="Courses">Våra kurser</a></li>
+                    <li><a asp-action="Index" asp-controller="Teachers">Lärare</a></li>
+                </ul>
+            </nav>
+        </section>
+        @await Html.PartialAsync("_WeeklyOffer")
+        @RenderBody()
+    </main>
+</body>
+</html>

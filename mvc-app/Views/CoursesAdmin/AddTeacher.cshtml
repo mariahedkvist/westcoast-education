@@ -1,0 +1,20 @@
+@model mvc_app.ViewModels.Course.CourseAddTeacherViewModel
+
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<section class="page-content">
+    <h1 class="page-title">Lägg till lärare</h1>
+    <form asp-action="addteacher" method="Patch">        
+        <div class="form-section">
+            <label asp-for="TeacherId"></label>
+            <select asp-for="TeacherId" asp-items="Model.Teachers"></select>
+            <span asp-validation-for="TeacherId"></span>
+        </div>
+        <div class="form-section" class="buttons">
+            <button type="Submit">Spara</button>
+            <a asp-action="Index" asp-controller="CoursesAdmin">Avbryt</a>
+        </div>
+    </form>
+</section>
